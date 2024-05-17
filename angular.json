@@ -98,8 +98,28 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "traficroutier:build:production",
+              "serveTarget": "traficroutier:serve:production"
+            },
+            "development": {
+              "buildTarget": "traficroutier:build:development",
+              "serveTarget": "traficroutier:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

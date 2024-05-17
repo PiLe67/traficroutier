@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "traficroutier-34bcc": {
+      "hosting": {
+        "traficroutier": [
+          "traficroutier-34bcc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "traficroutier-34bcc"
+  }
+}

@@ -1,0 +1,33 @@
+<body>
+    <div>
+        <form class="credentials" (ngSubmit)="signUp()">
+            <h1>Sign-Up</h1>
+            <mat-form-field class="box">
+                <mat-label>Entrez votre adresse mail</mat-label>
+                <input matInput [type]="email" [(ngModel)]="email" name="email" required>
+            </mat-form-field>
+            <div class="info-message">
+                <mat-icon aria-hidden="false" aria-label="Info icon" fontIcon="info"></mat-icon>
+                <p>Le mot de passe doit faire au moins 6 caractères de long.</p>
+            </div>
+            <mat-form-field class="box">
+                <mat-label>Entrez votre mot de passe</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" name="password" required minlength="6">
+                <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="box">
+                <mat-label>Confirmez votre mot de passe</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="verifPassword" name="verifPassword" required minlength="6">
+                <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-flat-button type="submit" color="primary" class="box" >Sign-Up</button>
+            <div *ngIf="errorMessage" class="errorMessage">
+                {{errorMessage}}
+            </div>
+        </form>
+    </div>
+</body>

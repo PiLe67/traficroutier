@@ -1,0 +1,7 @@
+.sideBar{
+    width: 50px;
+    height: 100%;
+    left: 0px;
+    background-color: rgb(16, 153, 153);
+    position: absolute;
+}

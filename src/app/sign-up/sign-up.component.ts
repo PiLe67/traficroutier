@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword } from "@angular/fire/auth";
+import { Auth, createUserWithEmailAndPassword,sendEmailVerification } from "@angular/fire/auth";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,12 +16,17 @@ export class SignUpComponent {
   errorMessage: string = "";
 
   public auth = inject(Auth);
+  public user: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   clickEvent(event: MouseEvent) {
     this.hide = !this.hide;
     event.stopPropagation();
+  }
+
+  SendVerificationMail() {
+    return sendEmailVerification(this.user);
   }
 
   signUp() {
@@ -30,20 +36,21 @@ export class SignUpComponent {
     }
     this.isLoading = true;
     this.errorMessage = "";
-    console.log(this.auth);
-    console.log(this.email);
-    console.log(this.password);
-    console.log(this.verifPassword);
     
     createUserWithEmailAndPassword(this.auth, this.email, this.password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+        this.user = userCredential.user;
         this.isLoading = false;
+        this.SendVerificationMail();
+        this.connect()
       })
       .catch((error) => {
         this.isLoading = false;
         this.errorMessage = error.message;
       });
+  }
+
+  connect() {
+      this.router.navigate(['sign-in'])
   }
 }

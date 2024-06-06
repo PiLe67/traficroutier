@@ -16,3 +16,10 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+.errorMessage{
+    margin-top: 20px;
+    color: red;
+    padding: 5px;
+    font-weight: bold;
+}

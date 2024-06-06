@@ -1,0 +1,14 @@
+<body>
+    <div class="content">
+        <h1 class="title">Accueil</h1>
+        <p class="messageAccueil">Bienvenue sur traficroutier-34bcc</p>
+        <div *ngIf="user; else notConnected">
+            <p><br>Vous êtes connecté en tant que {{user.email}}</p>
+            <button mat-flat-button (click)="signout()" color="primary" class="box" >Se déconnecter</button>
+        </div>
+    </div>
+</body>
+
+<ng-template #notConnected>
+    <button mat-flat-button (click)="signin()" color="primary" class="box" >Se connecter</button>
+</ng-template>

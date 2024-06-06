@@ -24,10 +24,12 @@
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
-            <button mat-flat-button type="submit" color="primary" class="box" >Sign-Up</button>
+            <button mat-flat-button type="submit" color="primary" class="box" >Valider</button>
             <div *ngIf="errorMessage" class="errorMessage">
                 {{errorMessage}}
             </div>
+            <p><br><br>Vous possédez déjà un compte ?<br></p>
+            <button mat-flat-button (click)="connect()" color="primary" class="box" >Se connecter</button>
         </form>
     </div>
 </body>

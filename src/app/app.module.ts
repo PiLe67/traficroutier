@@ -16,13 +16,21 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
+import { DureeTrajetComponent } from './duree-trajet/duree-trajet.component';
+
+import { provideHttpClient } from '@angular/common/http';
+import { MapComponent } from './map/map.component';
+import { SignOutComponent } from './sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     SignUpComponent,
-    HomeComponent
+    HomeComponent,
+    DureeTrajetComponent,
+    MapComponent,
+    SignOutComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,8 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

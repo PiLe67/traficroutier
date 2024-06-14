@@ -1,0 +1,29 @@
+<body>
+    <div class="content">
+        <h1 class="title">Durée trajet</h1>
+        <div class="subContent">
+            
+            <div *ngIf="user; else notConnected">
+                <form (ngSubmit)="getDuration()">
+                    <mat-form-field class="box">
+                        <mat-label>Entrez votre destination</mat-label>
+                        <input matInput [type]="ville" [(ngModel)]="ville" name="ville" required>
+                    </mat-form-field>
+                    <div class="homeButton"><button mat-flat-button type="submit" color="primary" class="box" >Calcul du temps de trajet</button></div>
+                </form>
+        
+                <div *ngIf="calculated" class="response">
+                    {{duree}}
+                </div>
+
+            </div>
+
+            <div class="homeButton"><button mat-flat-button (click)="home()" color="primary" class="box" >Menu principal</button></div>
+        </div>
+    </div>
+</body>
+
+<ng-template #notConnected>
+    <p>Veuillez vous connecter pour accéder au contenu de cette page.</p>
+    <button mat-flat-button (click)="signin()" color="primary" class="box" >Se connecter</button>
+</ng-template>

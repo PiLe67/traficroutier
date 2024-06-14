@@ -1,5 +1,66 @@
 <router-outlet>
-    <div class="sideBar">
-
+    <div class="sideBar" *ngIf="shown; else notShown">
+        <div class="buttonAndText" (click)="showSidebar()">
+            <button mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+            </button>
+            <p>Menu</p>
+        </div>
+        <div class="buttonAndText" (click)="home()">
+            <button mat-icon-button>
+                <mat-icon>home</mat-icon>
+            </button>
+            <p>Accueil</p>
+        </div>
+        <div class="buttonAndText" (click)="map()">
+            <button mat-icon-button>
+                <mat-icon>map</mat-icon>
+            </button>
+            <p>Carte</p>
+        </div>
+        <div class="buttonAndText" (click)="itineraire()">
+            <button mat-icon-button>
+                <mat-icon>location_on</mat-icon>
+            </button>
+            <p>Itinéraire</p>
+        </div>
+        <div class="buttonAndText" (click)="account()">
+            <button mat-icon-button>
+                <mat-icon>person</mat-icon>
+            </button>
+            <p>Compte</p>
+        </div>
+        
     </div>
+
+    <ng-template #notShown>
+        <div class="hiddenSideBar">
+            <div class="buttonAndText" (click)="showSidebar()">
+                <button mat-icon-button>
+                        <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div class="buttonAndText" (click)="home()">
+                <button mat-icon-button>
+                    <mat-icon>home</mat-icon>
+                </button>
+            </div>
+            <div class="buttonAndText" (click)="map()">
+                <button mat-icon-button>
+                    <mat-icon>map</mat-icon>
+                </button>
+            </div>
+            <div class="buttonAndText" (click)="itineraire()">
+                <button mat-icon-button>
+                    <mat-icon>location_on</mat-icon>
+                </button>
+            </div>
+            <div class="buttonAndText" (click)="account()">
+                <button mat-icon-button>
+                    <mat-icon>person</mat-icon>
+                </button>
+            </div>
+        </div>
+    </ng-template>
+
 </router-outlet>

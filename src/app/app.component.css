@@ -1,7 +1,45 @@
 .sideBar{
+    width: 150px;
+    height: 100%;
+    left: 0px;
+    background-color: rgb(16, 153, 153);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.hiddenSideBar{
     width: 50px;
     height: 100%;
     left: 0px;
     background-color: rgb(16, 153, 153);
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.button{
+    margin-top: 20px;
+}
+
+.title{
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.titlebox{
+    display: flex;
+    width: 100%;
+    background-color: rgb(27, 45, 139); 
+    justify-content: center;
+}
+
+.buttonAndText{
+    display: flex;
+    flex-direction: row;
+}
+.buttonAndText:hover {
+    background-color: gold;
 }

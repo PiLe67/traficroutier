@@ -12,6 +12,16 @@ body{
     justify-content: center;
 }
 
+.homeButton{
+    text-align: center;
+    padding: 10px;
+}
+
+.box{
+    width: 300px !important;
+    padding: 10px;
+}
+
 .content{
     display: flex;
     flex-direction: column;
@@ -22,6 +32,11 @@ body{
     width: 70%;
     align-self: center;
     justify-self: center;
+}
+
+.response{
+    padding: 10px;
+    border: 2px solid black;
 }
 
 .subContent{

@@ -22,4 +22,12 @@ export class HomeComponent {
     signOut(this.auth)
     this.router.navigate(['sign-in'])
   }
+
+  itinerary() {
+    this.router.navigate(['duree-trajet'])
+  }
+
+  traffic() {
+    this.router.navigate(['map'])
+  }
 }

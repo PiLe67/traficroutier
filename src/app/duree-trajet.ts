@@ -1,3 +1,3 @@
 export interface DureeTrajet {
-    duree:number
+    duree:string
 }

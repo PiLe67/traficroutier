@@ -13,12 +13,12 @@
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
-            <button mat-flat-button type="submit" color="primary" class="box" >Valider</button>
+            <button mat-flat-button type="submit" color="accent" class="box" >Valider</button>
             <div *ngIf="errorMessage" class="errorMessage">
                 {{errorMessage}}
             </div>
             <p><br><br>Pas encore de compte ?</p>
-            <button mat-flat-button (click)="newAccount()" color="primary" class="box" >S'enregister</button>
+            <button mat-flat-button (click)="newAccount()" color="accent" class="box" >S'enregister</button>
         </form>
     </div>
 </body>

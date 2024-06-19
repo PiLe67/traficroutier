@@ -1,27 +1,23 @@
-.title{
-    top:10px
-}
-
-.messageAccueil{
-    color: black;
-    align-items: center;
-}
-
 body{
     display: flex;
     justify-content: center;
+    background-color: rgb(163, 236, 163);
 }
 
 .content{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: aliceblue;
+    background-color: rgb(103, 184, 103);
     border: 3px solid black;
     height: 90%;
     width: 70%;
     align-self: center;
     justify-self: center;
+}
+
+.title{
+    top:10px
 }
 
 .subContent{
@@ -30,6 +26,52 @@ body{
     flex-direction: column;
     align-self: center;
     justify-content: center;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
+    align-items: center;
+    width: 80%;
+}
+
+.messageAccueil{
+    color: black;
+    align-items: center;
+}
+
+.redirectionButtons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 70%;
+    width: 60%;
+}
+
+.bigButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid black;
+    width: 60%;
+    height: 90%;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(66, 146, 66);
+}
+
+.bigButton:hover {
+    background-color: rgb(57, 124, 57);
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    max-width: auto;
+    height: 100%;
+}
+
+.logedIn{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }

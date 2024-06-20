@@ -39,8 +39,9 @@ export class DureeTrajetComponent implements OnInit{
         var allTravelPoints = response.routes[0].legs[0].points;
         var travelPoints:[[number,number]] = [[0,0]];
         for (let i = 0; i < allTravelPoints.length; i++){
-          travelPoints.push([allTravelPoints[i].latitude,allTravelPoints[i].longitude])
+          travelPoints.push([allTravelPoints[i].longitude,allTravelPoints[i].latitude])
         }
+        travelPoints.shift()
         var h = Math.floor(travelTime / 3600);
         var m = Math.floor((travelTime % 3600) / 60);
         var s = travelTime % 60;
@@ -83,7 +84,7 @@ export class DureeTrajetComponent implements OnInit{
           ]
         }
 
-        map.on('load', function() {
+        map.on('load', async function() {
 
           map.addLayer({
             id: "overlay",
@@ -94,7 +95,7 @@ export class DureeTrajetComponent implements OnInit{
                 type: "Feature",
                 geometry: {
                   type: "LineString",
-                  coordinates: travelPoints,
+                  coordinates: travelPoints ,
                 },
                 properties: {},
               },
@@ -105,14 +106,12 @@ export class DureeTrajetComponent implements OnInit{
               "line-opacity": 1,
             },
           });
-          var bounds = new tt.LngLatBounds();
-          geojson.features[0].geometry.coordinates.forEach(function(point:any) {
-              bounds.extend(tt.LngLat.convert(point));
+          var bounds = new tt.LngLatBounds(new tt.LngLat(7.6665,48.49242), new tt.LngLat(7.6665,48.49242));
+          
+          console.log(bounds)
+          bounds = await extendBounds(bounds,travelPoints);
+          map.fitBounds(bounds);//, { duration: 0, padding: 100 });
           });
-          map.fitBounds(bounds, { duration: 0, padding: 100 });
-        });
-        
-        
         });
     } catch (error) {
         console.error('Error getting duration:', error);
@@ -146,3 +145,11 @@ export class DureeTrajetComponent implements OnInit{
     this.router.navigate(['home'])
   }
 }
+function extendBounds(bounds: tt.LngLatBounds, travelPoints: [[number, number]]): tt.LngLatBounds | PromiseLike<tt.LngLatBounds> {
+  for (let i = 1; i < travelPoints.length; i++) {
+    bounds = bounds.extend(tt.LngLat.convert(travelPoints[i]));
+  };
+  console.log(bounds)
+  return bounds;
+}
+

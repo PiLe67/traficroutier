@@ -21,3 +21,4 @@ export class ApiService {
     return this.http.get<DureeTrajet>(this.baseurl+"/routing/1/calculateRoute/"+latDep.toString()+"%2C"+longDep.toString()+"%3A"+latArr.toString()+"%2C"+longArr.toString()+"/json?travelMode=car&key="+apiKey)
   }
 }
+ 

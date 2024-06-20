@@ -21,6 +21,12 @@ body{
 .info-message{
     display: flex;
     flex-direction: row;
+    justify-items: center;
+}
+
+.info-icon{
+    display: flex;
+    justify-content: center;
 }
 
 .errorMessage{
